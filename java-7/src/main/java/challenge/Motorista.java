@@ -87,11 +87,15 @@ public class Motorista {
         }
 
         public MotoristaBuilder withIdade(int idade) {
+            if(idade < 0)
+                throw new IllegalArgumentException();
             this.idade = idade;
             return this;
         }
 
         public MotoristaBuilder withPontos(int pontos) {
+            if(pontos < 0)
+                throw new IllegalArgumentException();
             this.pontos = pontos;
             return this;
         }
@@ -103,6 +107,8 @@ public class Motorista {
 
 
         public Motorista build() {
+            if(nome == null || habilitacao == null)
+                throw new NullPointerException();
             return new Motorista(nome, idade, pontos, habilitacao);
         }
     }

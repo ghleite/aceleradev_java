@@ -88,6 +88,10 @@ public class Carro {
         }
 
         public Carro build() {
+            if(placa == null || cor == null)
+                throw new NullPointerException();
+            if(motorista == null)
+                throw new EstacionamentoException("Carro não pode ser autonomo!");
             return new Carro(motorista, placa, cor);
         }
     }
