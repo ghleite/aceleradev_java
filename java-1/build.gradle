@@ -1,0 +1,33 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+
+group = 'br.com.codenation'
+version = '1.0'
+mainClassName = 'br.com.codenation.DesafioApplicationRunner'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+    jcenter()
+}
+
+
+task desafio(type: JavaExec) {
+  classpath sourceSets.main.runtimeClasspath
+  main = "br.com.codenation.DesafioApplicationRunner"
+}
+
+dependencies {
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+    testImplementation 'org.assertj:assertj-core:3.6.2'
+    testCompile 'junit:junit:4.12'
+    compile 'junit:junit:4.12'
+    compile files('libs/submit-desafio-java-1.jar')
+	compile files('libs/desafio-java-1.jar')
+    implementation 'org.testng:testng:6.9.6'
+    implementation 'junit:junit:4.12'
+    implementation 'junit:junit:4.12'
+    implementation 'junit:junit:4.12'
+    implementation 'org.testng:testng:6.9.6'
+}
